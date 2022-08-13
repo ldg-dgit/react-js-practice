@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-    <body>
-        
-    </body>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script>
-        
-    </script>
+<html>
+  <body>
+    <div class="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.querySelector(".root");
+    const Title = () => (
+      <h3 className='title' onMouseEnter={() => console.log("mouse")}>
+        Click that
+      </h3>
+    );
+    const Btn = () => (
+      <button style={{ backgroundColor: "tomato" }} onClick={() => console.log("im clicked")}>
+        Click Me
+      </button>
+    );
+    const Container = (
+      <div>
+        <Title />
+        <Btn />
+      </div>
+    );
+    ReactDOM.render(Container, root);
+  </script>
 </html>
+
+<!--내가 생성한 함수는 반드시 대문자로 써야 react와 jsx가 이해 가능. 소문자는 HTML tag로 인식
