@@ -8,20 +8,18 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.querySelector(".root");
-    function App () {
+    function App() {
       const [counter, setCounter] = React.useState(0);
       const onClick = () => {
         setCounter((current) => current + 1);
-      }
-      return(
+      };
+      return (
         <div>
           <h3>Total Clicks : {counter}</h3>
           <button onClick={onClick}>Click Me</button>
         </div>
       );
-    };
-    ReactDOM.render(<App/>, root);
+    }
+    ReactDOM.render(<App />, root);
   </script>
 </html>
-
-<!--내가 생성한 함수는 반드시 대문자로 써야 react와 jsx가 이해 가능. 소문자는 HTML tag로 인식
