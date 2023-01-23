@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
    font-family: 'Source Sans Pro', sans-serif;
    color:black;
    line-height: 1.2;
-   background:linear-gradient(135deg,#00ff80,#02ffea);
+   background:linear-gradient(135deg,rgb(0, 255, 128),rgb(2, 255, 234));
  }
  a {
    text-decoration:none;

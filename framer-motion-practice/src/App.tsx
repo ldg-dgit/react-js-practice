@@ -2,17 +2,18 @@ import styled from "styled-components";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, rgb(0, 255, 128), rgb(2, 255, 234));
 `;
 
 const Box = styled(motion.div)`
-  width: 200px;
-  height: 200px;
+  width: 175px;
+  height: 175px;
   display: grid;
   background-color: rgba(255, 255, 255, 1);
   border-radius: 40px;
@@ -21,11 +22,19 @@ const Box = styled(motion.div)`
 
 function App() {
   const x = useMotionValue(0);
-  const scale = useTransform(x, [-500, 0, 500], [2, 1, 0.2]);
-
+  const rotateZ = useTransform(x, [-500, 500], [-360, 360]);
+  const gradient = useTransform(
+    x,
+    [-500, 0, 500],
+    [
+      "linear-gradient(135deg, rgb(255, 48, 48), rgb(255, 182, 93))",
+      "linear-gradient(135deg, rgb(0, 255, 128), rgb(2, 255, 234))",
+      "linear-gradient(135deg, rgb(69, 45, 255), rgb(206, 28, 255))",
+    ]
+  );
   return (
-    <Wrapper>
-      <Box style={{ x, scale }} drag='x' dragSnapToOrigin />
+    <Wrapper style={{ background: gradient }}>
+      <Box style={{ x, rotateZ }} drag='x' dragSnapToOrigin />
     </Wrapper>
   );
 }
