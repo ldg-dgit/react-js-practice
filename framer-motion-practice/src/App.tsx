@@ -21,12 +21,13 @@ const Box = styled(motion.div)`
 const boxVariants = {
   hover: { scale: 1.5, rotateZ: 90 },
   click: { scale: 1, borderRadius: "100px" },
+  drag: { backgroundColor: "rgb(252, 67, 39)", transition: { duration: 1 } },
 };
 
 function App() {
   return (
     <Wrapper>
-      <Box drag variants={boxVariants} whileHover='hover' whileTap='click' />
+      <Box drag variants={boxVariants} whileHover='hover' whileDrag='drag' whileTap='click' />
     </Wrapper>
   );
 }
